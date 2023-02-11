@@ -1,4 +1,5 @@
 import Vimeo from '@vimeo/player';
+import throttle from 'lodash.throttle';
 const refPlayer = document.querySelector('#vimeo-player');
 console.log(refPlayer);
 const STORAGE_KEY = 'videoplayer-current-time';
@@ -10,9 +11,12 @@ if (refPlayer) {
 function startPlayer() {
   if (refPlayer) {
     player = new Vimeo(refPlayer);
-    player.on('timeupdate', function (event) {
-      localStorage.setItem(STORAGE_KEY, event.seconds);
-    });
+    player.on(
+      'timeupdate',
+      throttle(function (event) {
+        localStorage.setItem(STORAGE_KEY, event.seconds);
+      }, 1000)
+    );
   }
 }
 
