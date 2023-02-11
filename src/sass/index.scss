@@ -1,2 +1,6 @@
-@import './common';
-@import './example';
+// @import './common';
+// @import './example';
+@import '../css/common.css';
+@import '../css/01-gallery.css';
+@import '../../node_modules/simplelightbox/dist/simple-lightbox.min.css';
+@import '../css/03-feedback.css';
