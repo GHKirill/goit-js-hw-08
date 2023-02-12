@@ -16,11 +16,10 @@ function createGallery(list) {
 function insertGalleryContainerToHTML() {
   galleryContainer.insertAdjacentHTML('beforeend', createGallery(galleryItems));
 }
-if (galleryContainer) {
-  insertGalleryContainerToHTML();
-  let lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionPosition: 'bottom',
-    captionDelay: 250,
-  });
-}
+
+insertGalleryContainerToHTML();
+let lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+});
